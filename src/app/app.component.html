@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Hospital Patient Registration Form</h2>
+  
+    <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)" novalidate>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" class="form-control" name="fullName" ngModel required minlength="3" #fullName="ngModel" />
+        <div *ngIf="fullName.invalid && fullName.touched" class="text-danger">
+          Full name is required and must be at least 3 characters long.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" class="form-control" name="gender" ngModel required #gender="ngModel">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div *ngIf="gender.invalid && gender.touched" class="text-danger">
+          Gender is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" class="form-control" name="dob" ngModel required #dob="ngModel" />
+        <div *ngIf="dob.invalid && dob.touched" class="text-danger">
+          Date of birth is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" ngModel required email #email="ngModel" />
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          Enter a valid email address.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" class="form-control" name="contact" ngModel required pattern="^[0-9]{10}$" #contact="ngModel" />
+        <div *ngIf="contact.invalid && contact.touched" class="text-danger">
+          Enter a valid 10-digit contact number.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="symptoms">Symptoms</label>
+        <textarea id="symptoms" class="form-control" name="symptoms" ngModel required minlength="10" #symptoms="ngModel"></textarea>
+        <div *ngIf="symptoms.invalid && symptoms.touched" class="text-danger">
+          Please describe symptoms (at least 10 characters).
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="appointmentDate">Preferred Appointment Date</label>
+        <input type="date" id="appointmentDate" class="form-control" name="appointmentDate" ngModel required #appointmentDate="ngModel" />
+        <div *ngIf="appointmentDate.invalid && appointmentDate.touched" class="text-danger">
+          Preferred appointment date is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="patientForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+  

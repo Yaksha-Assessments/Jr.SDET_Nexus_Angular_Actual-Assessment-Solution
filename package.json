@@ -1,0 +1,55 @@
+{
+  "name": "angular-template-driven-forms",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "json:server": "json-server --watch ./src/assets/db.json --port 3000",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest --no-cache --runInBand",
+    "test:coverage": "jest --coverage",
+    "test-watch": "jest --watch"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "16.2.12",
+    "@angular/compiler": "16.2.12",
+    "@angular/core": "16.2.12",
+    "@angular/forms": "16.2.12",
+    "@angular/platform-browser": "16.2.12",
+    "@angular/platform-browser-dynamic": "16.2.12",
+    "@angular/router": "16.2.12",
+    "zone.js": "^0.13.0",
+    "rxjs": "~7.8.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.2.1",
+    "jest": "^29.5.0",
+    "jest-preset-angular": "^13.1.1",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.5.0",
+    "json-server": "^0.17.4",
+    "xhr2": "^0.2.1",
+    "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.12",
+    "@angular/cli": "^16.2.12",
+    "@angular/compiler-cli": "^16.2.12",
+    "typescript": "~5.1.0"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup-jest.ts"
+    ],
+    "reporters": [
+      "default",
+      [
+        "<rootDir>/jest/custom-reporter.js",
+        {}
+      ]
+    ],
+    "globalSetup": "jest-preset-angular/global-setup"
+  }
+}
